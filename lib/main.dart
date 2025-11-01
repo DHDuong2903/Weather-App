@@ -13,7 +13,7 @@ class WeatherApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Weather App",
-      home: Intropage(),
+      home: IntroPage(),
     );
   }
 }
