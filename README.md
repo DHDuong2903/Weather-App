@@ -1,16 +1,14 @@
-# weather_app
+# Đề tài
 
-A new Flutter project.
+ỨNG DỤNG DỰ BÁO THỜI TIẾT
 
-## Getting Started
+# Thành viện
 
-This project is a starting point for a Flutter application.
+ - Phạm Gia Huy - 22010043
+ - Đỗ Huy Dương - 22010179
 
-A few resources to get you started if this is your first Flutter project:
+# Giới thiệu
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ - Ứng dụng Dự báo thời tiết được phát triển bằng Flutter, cho phép người dùng xem thông tin thời tiết hiện tại và dự báo 5 ngày tới thông qua API của OpenWeatherMap.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ - Giao diện được thiết kế hiện đại, hỗ trợ Dark Mode, đa ngôn ngữ (Việt – Anh) và các biểu đồ trực quan thể hiện các điều kiện thời tiết theo từng khung giờ.
