@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/pages/HomePage.dart';
 
 class IntroPage extends StatelessWidget {
-  const IntroPage({super.key});
+  final VoidCallback toggleTheme;
+  const IntroPage({super.key, required this.toggleTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,9 @@ class IntroPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (_) => HomePage()),
+                          MaterialPageRoute(
+                            builder: (_) => HomePage(toggleTheme: toggleTheme),
+                          ),
                         );
                       },
                     ),

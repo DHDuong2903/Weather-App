@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final VoidCallback toggleTheme;
   final String city;
   final String language;
   final Function(String) onCityChanged;
@@ -8,7 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const CustomAppBar({
     super.key,
-
+    required this.toggleTheme,
     required this.city,
     required this.language,
     required this.onCityChanged,
@@ -51,6 +52,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           currentValue: language,
           onSelected: onLanguageChanged,
           labels: {"vi": "Tiếng Việt", "en": "English"},
+        ),
+        const SizedBox(width: 8),
+        IconButton(
+          tooltip: "Đổi giao diện",
+          onPressed: toggleTheme,
+          icon: const Icon(Icons.brightness_6, color: Colors.white),
         ),
         const SizedBox(width: 8),
       ],
