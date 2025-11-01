@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/utils/translations.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback toggleTheme;
@@ -38,10 +39,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           currentValue: city,
           onSelected: onCityChanged,
           labels: {
-            "Hanoi": "Hà Nội",
-            "New York": "New York",
-            "Tokyo": "Tokyo",
-            "London": "London",
+            "Hanoi": AppLocalizations.get('city_hanoi', language),
+            "New York": AppLocalizations.get('city_newyork', language),
+            "Tokyo": AppLocalizations.get('city_tokyo', language),
+            "London": AppLocalizations.get('city_london', language),
           },
         ),
         const SizedBox(width: 8),
@@ -51,7 +52,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           items: const ["vi", "en"],
           currentValue: language,
           onSelected: onLanguageChanged,
-          labels: {"vi": "Tiếng Việt", "en": "English"},
+          labels: {
+            "vi": AppLocalizations.get('lang_vi', language),
+            "en": AppLocalizations.get('lang_en', language),
+          },
         ),
         const SizedBox(width: 8),
         IconButton(
@@ -72,10 +76,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required Function(String) onSelected,
     required Map<String, String> labels,
   }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return PopupMenuButton<String>(
       offset: const Offset(0, 45),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      color: const Color(0xFF5896FD).withOpacity(0.9),
+      color: isDarkMode
+          ? const Color(0xFF2C2C2E).withOpacity(0.95)
+          : const Color(0xFF5896FD).withOpacity(0.9),
       elevation: 8,
       onSelected: (value) => onSelected(value),
       itemBuilder: (context) {
