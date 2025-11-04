@@ -4,6 +4,12 @@ class AppLocalizations {
 
   static const Map<String, Map<String, String>> localizedStrings = {
     'vi': {
+      'today': 'Hôm nay',
+      'feelsLike': 'Cảm giác như',
+      'day': 'Ban ngày',
+      'night': 'Ban đêm',
+      'error': 'Lỗi tải dữ liệu',
+      "no_data": "Không có dữ liệu",
       'city_hanoi': 'Hà Nội',
       'city_newyork': 'New York',
       'city_tokyo': 'Tokyo',
@@ -12,6 +18,12 @@ class AppLocalizations {
       'lang_en': 'English',
     },
     'en': {
+      'today': 'Today',
+      'feelsLike': 'Feels like',
+      'day': 'Daytime',
+      'night': 'Nighttime',
+      'error': 'Failed to load data',
+      "no_data": "No data available",
       'city_hanoi': 'Hanoi',
       'city_newyork': 'New York',
       'city_tokyo': 'Tokyo',

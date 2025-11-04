@@ -34,6 +34,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  http: ^1.4.0
+  intl: ^0.20.2
+  google_fonts: ^6.2.1
+  flutter_riverpod: ^2.6.1
+  lottie: ^3.1.0
+  fl_chart: ^0.68.0
+  lucide_icons_flutter: ^3.1.4
+  lucide_icons: ^0.257.0
+  flutter_compass: ^0.8.0
 
 dev_dependencies:
   flutter_test:
@@ -63,10 +72,30 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/bg_intro.jpg
+    - assets/images/rainy.png
+    - assets/images/coldy.png
+    - assets/images/cloudy.png
+    - assets/images/sunny.png
+    - assets/images/storm.png
     - assets/images/hanoi.jpg
     - assets/images/newyork.jpg
     - assets/images/tokyo.jpg
     - assets/images/london.jpg
+    - assets/animations/clear_sun.json
+    - assets/animations/Clouds.json
+    - assets/animations/Cold_Temperature.json
+    - assets/animations/Hot_Temperature.json
+    - assets/animations/humidity.json
+    - assets/animations/rainy_icon.json
+    - assets/animations/Rainy.json
+    - assets/animations/sunclouds.json
+    - assets/animations/Weather-snow.json
+    - assets/animations/Weather-storm.json
+    - assets/animations/Weather-thunder.json
+    - assets/animations/Weather-windy.json
+    - assets/animations/Wind_gust.json
+    - assets/animations/Fog_Smoke.json
+    - assets/animations/Weather-night.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
