@@ -8,6 +8,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:weather_app/utils/WeatherAnimation.dart';
 import 'package:weather_app/components/TemperatureLineChart.dart';
 import 'package:weather_app/components/WeatherDataSelector.dart';
+import 'package:weather_app/components/RainForecastSection.dart';
 import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
 
@@ -243,6 +244,10 @@ class _DailyForecastDetailPageState extends State<DailyForecastDetailPage> {
                             Divider(
                               thickness: 1,
                               color: isDarkMode ? Colors.white24 : Colors.grey,
+                            ),
+                            RainForecastSection(
+                              hourlyData: hourlyData,
+                              lang: widget.language,
                             ),
                           ],
                         ],
