@@ -132,6 +132,10 @@ class ForecastPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (_) => DailyForecastDetailPage(
+                        city: city,
+                        date: item["date"],
+                        language: language,
+                        hourlyData: item["hourlyData"],
                       ),
                     ),
                   );
