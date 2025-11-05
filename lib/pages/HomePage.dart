@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/pages/ForecastPage.dart';
 import 'package:weather_app/themes/AppColors.dart';
 import 'package:weather_app/utils/Translations.dart';
 import 'package:weather_app/components/CustomAppBar.dart';
@@ -123,6 +124,57 @@ class _HomePageState extends State<HomePage> {
 
                       // hien thi cac chi so thoi tiet khac
                       WeatherInfoGrid(data: weatherData, language: language),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              AppLocalizations.get('today', language),
+                              style: Theme.of(context).textTheme.titleLarge
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: isDark
+                                        ? const Color.fromARGB(
+                                            255,
+                                            255,
+                                            255,
+                                            255,
+                                          )
+                                        : null,
+                                  ),
+                            ),
+                            ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Theme.of(
+                                  context,
+                                ).colorScheme.primary,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                              icon: const Icon(Icons.calendar_today, size: 18),
+                              label: Text(
+                                AppLocalizations.get('next5days', language),
+                                style: const TextStyle(fontSize: 14),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => ForecastPage(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
                       // hien thi du bao thoi tiet trong ngay theo gio
                       HourlyForecast(
                         forecastList: forecastList,

@@ -5,6 +5,7 @@ class AppLocalizations {
   static const Map<String, Map<String, String>> localizedStrings = {
     'vi': {
       'today': 'Hôm nay',
+      'next5days': 'Thời tiết 5 ngày tới',
       'feelsLike': 'Cảm giác như',
       'day': 'Ban ngày',
       'night': 'Ban đêm',
@@ -19,6 +20,7 @@ class AppLocalizations {
     },
     'en': {
       'today': 'Today',
+      'next5days': 'Next 5 days forecast',
       'feelsLike': 'Feels like',
       'day': 'Daytime',
       'night': 'Nighttime',
