@@ -17,6 +17,7 @@ class AppLocalizations {
       'city_london': 'London',
       'lang_vi': 'Tiếng Việt',
       'lang_en': 'English',
+      
     },
     'en': {
       'today': 'Today',

@@ -35,4 +35,64 @@ class WeatherService {
       throw Exception("Không thể tải dữ liệu dự báo 5 ngày");
     }
   }
+  // Gom dữ liệu theo ngày (sử dụng lại trong ForecastPage)
+  List<Map<String, dynamic>> groupForecastByDay(Map<String, dynamic> data) {
+    final List<dynamic> forecastList = data['list'] ?? [];
+    final Map<String, List<dynamic>> groupedByDate = {};
+
+    for (var item in forecastList) {
+      final date = item['dt_txt'].substring(0, 10);
+      groupedByDate.putIfAbsent(date, () => []).add(item);
+    }
+
+    final List<Map<String, dynamic>> dailyForecasts = [];
+    groupedByDate.forEach((date, entries) {
+      double minTemp = entries.first["main"]["temp_min"];
+      double maxTemp = entries.first["main"]["temp_max"];
+      double avgPop = 0;
+      String desc = entries.first["weather"][0]["description"];
+      String icon = entries.first["weather"][0]["icon"];
+
+      for (var e in entries) {
+        minTemp = e["main"]["temp_min"] < minTemp
+            ? e["main"]["temp_min"]
+            : minTemp;
+        maxTemp = e["main"]["temp_max"] > maxTemp
+            ? e["main"]["temp_max"]
+            : maxTemp;
+        avgPop += (e["pop"] ?? 0);
+      }
+
+      avgPop = (avgPop / entries.length) * 100;
+
+      dailyForecasts.add({
+        "date": date,
+        "min": minTemp.round(),
+        "max": maxTemp.round(),
+        "pop": avgPop.round(),
+        "icon": icon,
+        "desc": desc,
+        "hourlyData": entries,
+      });
+    });
+
+    return dailyForecasts;
+  }
+
+  // Lấy dữ liệu giờ cụ thể trong ngày
+  Future<List<dynamic>> getHourlyData(
+    String city,
+    String lang,
+    DateTime date,
+  ) async {
+    final forecastData = await getForecast(city, lang);
+    final List<dynamic> list = forecastData['list'];
+
+    return list.where((e) {
+      final dt = DateTime.parse(e['dt_txt']).toLocal();
+      return dt.day == date.day &&
+          dt.month == date.month &&
+          dt.year == date.year;
+    }).toList();
+  }
 }
