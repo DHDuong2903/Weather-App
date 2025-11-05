@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 import 'package:weather_app/utils/WeatherAnimation.dart';
+import 'package:weather_app/pages/DailyForecastDetailPage.dart';
 import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
 
@@ -126,6 +127,15 @@ class ForecastPage extends StatelessWidget {
               final pop = item["pop"];
 
               return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => DailyForecastDetailPage(
+                      ),
+                    ),
+                  );
+                },
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 40),
                   padding: const EdgeInsets.symmetric(
