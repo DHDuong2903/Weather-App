@@ -29,6 +29,12 @@ class AppColors {
 
   static Color subText(BuildContext context) =>
     isDark(context) ? Colors.white70 : Colors.black54;
+  
+  static Color cardBackground(BuildContext context) =>
+      isDark(context) ? const Color(0xFF1C1C1E) : Colors.white;
+
+  static Color border(BuildContext context) =>
+      isDark(context) ? Colors.white24 : Colors.grey.shade400;
 
   //  Rain chart màu gradient
   static const Color darkRainTop = Colors.lightBlueAccent;

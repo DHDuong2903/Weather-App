@@ -12,6 +12,8 @@ import 'package:weather_app/components/RainForecastSection.dart';
 import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
 import 'package:weather_app/components/WindLineChart.dart';
+import 'package:weather_app/components/VisibilityLineChart.dart';
+
 class DailyForecastDetailPage extends StatefulWidget {
   final String city;
   final String date;
@@ -251,6 +253,11 @@ class _DailyForecastDetailPageState extends State<DailyForecastDetailPage> {
                             ),
                           ] else if (selectedDataType == "wind") ...[
                             WindLineChart(
+                              hourlyData: hourlyData,
+                              lang: widget.language,
+                            ),
+                          ] else if (selectedDataType == "visibility") ...[
+                            VisibilityLineChart(
                               hourlyData: hourlyData,
                               lang: widget.language,
                             ),
