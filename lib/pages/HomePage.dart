@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       // hien thi cac chi so thoi tiet khac
-                      WeatherInfoGrid(),
+                      WeatherInfoGrid(data: weatherData, language: language),
                       // hien thi du bao thoi tiet trong ngay theo gio
                       HourlyForecast(),
                     ],
