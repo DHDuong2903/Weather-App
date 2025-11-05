@@ -6,15 +6,15 @@ import 'package:lottie/lottie.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:weather_app/utils/WeatherAnimation.dart';
+import 'package:weather_app/components/RainForecastSection.dart';
 import 'package:weather_app/components/TemperatureLineChart.dart';
 import 'package:weather_app/components/WeatherDataSelector.dart';
-import 'package:weather_app/components/RainForecastSection.dart';
+import 'package:weather_app/components/WindLineChart.dart';
+import 'package:weather_app/components/HumidityLineChart.dart';
+import 'package:weather_app/components/VisibilityLineChart.dart';
+import 'package:weather_app/components/PressureLineChart.dart';
 import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
-import 'package:weather_app/components/WindLineChart.dart';
-import 'package:weather_app/components/VisibilityLineChart.dart';
-import 'package:weather_app/components/HumidityLineChart.dart';
-
 
 class DailyForecastDetailPage extends StatefulWidget {
   final String city;
@@ -258,8 +258,18 @@ class _DailyForecastDetailPageState extends State<DailyForecastDetailPage> {
                               hourlyData: hourlyData,
                               lang: widget.language,
                             ),
+                          ] else if (selectedDataType == "humidity") ...[
+                            HumidityLineChart(
+                              hourlyData: hourlyData,
+                              lang: widget.language,
+                            ),
                           ] else if (selectedDataType == "visibility") ...[
                             VisibilityLineChart(
+                              hourlyData: hourlyData,
+                              lang: widget.language,
+                            ),
+                          ] else if (selectedDataType == "pressure") ...[
+                            PressureLineChart(
                               hourlyData: hourlyData,
                               lang: widget.language,
                             ),
