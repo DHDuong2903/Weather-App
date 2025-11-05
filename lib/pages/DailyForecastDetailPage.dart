@@ -11,7 +11,7 @@ import 'package:weather_app/components/WeatherDataSelector.dart';
 import 'package:weather_app/components/RainForecastSection.dart';
 import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
-
+import 'package:weather_app/components/WindLineChart.dart';
 class DailyForecastDetailPage extends StatefulWidget {
   final String city;
   final String date;
