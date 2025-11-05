@@ -249,6 +249,11 @@ class _DailyForecastDetailPageState extends State<DailyForecastDetailPage> {
                               hourlyData: hourlyData,
                               lang: widget.language,
                             ),
+                          ] else if (selectedDataType == "wind") ...[
+                            WindLineChart(
+                              hourlyData: hourlyData,
+                              lang: widget.language,
+                            ),
                           ],
                         ],
                       ),
