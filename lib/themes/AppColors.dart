@@ -21,4 +21,28 @@ class AppColors {
   //  Văn bản
   static const Color darkText = Colors.white;
   static const Color lightText = Colors.black;
+  static final Color darkSubText = Colors.white70;
+  static final Color lightSubText = Colors.black54;
+
+  static Color text(BuildContext context) =>
+    isDark(context) ? Colors.white : Colors.black87;
+
+  static Color subText(BuildContext context) =>
+    isDark(context) ? Colors.white70 : Colors.black54;
+
+  //  Rain chart màu gradient
+  static const Color darkRainTop = Colors.lightBlueAccent;
+  static const Color lightRainTop = Colors.blueAccent;
+  static const Color darkRainFill = Color(0xFF2A2A2A);
+  static const Color lightRainFill = Color(0xFFF2F2F7);
+
+  //  Viền & grid
+  static final Color darkBorder = Colors.grey.shade700;
+  static final Color lightBorder = Colors.grey.shade300;
+  static final Color darkGrid = Colors.white12;
+  static final Color lightGrid = Colors.grey.shade300;
+  
+  // điểm nhấn
+  static const Color lightAccent = Color.fromARGB(255, 64, 179, 255);
+  static const Color darkAccent = Colors.lightBlueAccent;
 }
