@@ -235,7 +235,15 @@ class _DailyForecastDetailPageState extends State<DailyForecastDetailPage> {
 
                           const SizedBox(height: 20),
 
-                          
+                          // Biểu đồ
+                          if (selectedDataType == "temperature") ...[
+                            TemperatureLineChart(hourlyData: hourlyData),
+                            const SizedBox(height: 20),
+                            Divider(
+                              thickness: 1,
+                              color: isDarkMode ? Colors.white24 : Colors.grey,
+                            ),
+                          ],
                         ],
                       ),
                     ),
