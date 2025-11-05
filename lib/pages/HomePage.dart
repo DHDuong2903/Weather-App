@@ -166,7 +166,10 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (_) => ForecastPage(),
+                                    builder: (_) => ForecastPage(
+                                      city: city,
+                                      language: language,
+                                    ),
                                   ),
                                 );
                               },
