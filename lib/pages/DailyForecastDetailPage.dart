@@ -13,6 +13,8 @@ import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
 import 'package:weather_app/components/WindLineChart.dart';
 import 'package:weather_app/components/VisibilityLineChart.dart';
+import 'package:weather_app/components/HumidityLineChart.dart';
+
 
 class DailyForecastDetailPage extends StatefulWidget {
   final String city;
