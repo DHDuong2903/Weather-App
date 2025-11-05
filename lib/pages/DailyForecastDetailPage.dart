@@ -6,7 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:weather_app/utils/WeatherAnimation.dart';
-
+import 'package:weather_app/components/WeatherDataSelector.dart';
 import 'package:weather_app/utils/translations.dart';
 import 'package:weather_app/services/WeatherService.dart';
 
@@ -221,10 +221,21 @@ class _DailyForecastDetailPageState extends State<DailyForecastDetailPage> {
                                   ),
                                 ],
                               ),
+                              WeatherDataSelector(
+                                selectedValue: selectedDataType,
+                                onSelect: (value) {
+                                  setState(() {
+                                    selectedDataType = value;
+                                  });
+                                },
+                                lang: widget.language,
+                              ),
                             ],
                           ),
 
                           const SizedBox(height: 20),
+
+                          
                         ],
                       ),
                     ),
