@@ -21,4 +21,18 @@ class WeatherService {
       throw Exception("Không thể tải dữ liệu thời tiết hiện tại");
     }
   }
+
+  //  lay du bao thoi tiet 5 ngay
+  Future<Map<String, dynamic>> getForecast(String city, String lang) async {
+    final url = Uri.parse(
+      '$baseUrl/forecast?q=$city&appid=$apiKey&units=metric&lang=$lang',
+    );
+
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception("Không thể tải dữ liệu dự báo 5 ngày");
+    }
+  }
 }

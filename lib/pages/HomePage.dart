@@ -24,6 +24,10 @@ class _HomePageState extends State<HomePage> {
     return await weatherService.getCurrentWeather(city, language);
   }
 
+  Future<Map<String, dynamic>> fetchForecast() async {
+    return await weatherService.getForecast(city, language);
+  }
+
   String getCityImage(String city) {
     switch (city.toLowerCase()) {
       case 'hanoi':
@@ -53,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         onLanguageChanged: (val) => setState(() => language = val),
       ),
       body: FutureBuilder(
-        future: Future.wait([fetchWeather()]),
+        future: Future.wait([fetchWeather(), fetchForecast()]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -61,6 +65,7 @@ class _HomePageState extends State<HomePage> {
             return Center(child: Text(AppLocalizations.get('error', language)));
           } else {
             final weatherData = snapshot.data![0];
+            final forecastData = snapshot.data![1];
 
             final temp = weatherData['main']['temp']?.toDouble() ?? 0.0;
             final feelsLike =
@@ -68,6 +73,7 @@ class _HomePageState extends State<HomePage> {
             final desc = weatherData['weather'][0]['description'] ?? '';
             final icon = weatherData['weather'][0]['icon'] ?? '01d';
             final isDay = icon.contains('d');
+            final forecastList = forecastData['list'] ?? [];
 
             return Stack(
               children: [
@@ -118,7 +124,10 @@ class _HomePageState extends State<HomePage> {
                       // hien thi cac chi so thoi tiet khac
                       WeatherInfoGrid(data: weatherData, language: language),
                       // hien thi du bao thoi tiet trong ngay theo gio
-                      HourlyForecast(),
+                      HourlyForecast(
+                        forecastList: forecastList,
+                        language: language,
+                      ),
                     ],
                   ),
                 ),
